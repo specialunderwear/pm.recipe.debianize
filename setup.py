@@ -40,6 +40,11 @@ Last but not least
 ------------------
 
 This recipe does not install fpm for you.
+instead use http://pypi.python.org/pypi/rubygemsrecipe/0.1.5::
+
+    [rubygems]
+    recipe = rubygemsrecipe
+    gems = fpm
 """
 
 from setuptools import setup
