@@ -1,1 +1,3 @@
 pm.recipe.debianize.egg-info
+.ropeproject
+dist
