@@ -8,7 +8,7 @@ from setuptools import find_packages
 
 version = '0.1'
 
-setup(name='avira.recipe.debianize',
+setup(name='pm.recipe.debianize',
       version=version,
       description="debianize",
       long_description=__doc__,
@@ -30,5 +30,5 @@ setup(name='avira.recipe.debianize',
         # -*- Extra requirements: -*-
       ],
       entry_points={'zc.buildout': [
-          'default = avira.recipe.debianize:Debianize']},
+          'default = pm.recipe.debianize:Debianize']},
       )
