@@ -1,6 +1,6 @@
 #! /bin/bash
 
-MAINTAINER="{{ maintainer or 'Lars van de Kerkhof <lars@permanentmarkers.nl>' }}"
+MAINTAINER="{{ maintainer or 'Somebody <somebody@example.com>' }}"
 
 if [[ $EUID -ne 0 ]]; then
    echo "You must be root to build a debian package." 1>&2
