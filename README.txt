@@ -34,3 +34,7 @@ The above defined ``follow_dependencies`` will be matched like this::
 
 So it will simply put a ``|`` symbol in between the patterns.
 
+Last but not least
+------------------
+
+This recipe does not install fpm for you.
