@@ -24,5 +24,12 @@ Usage::
 If you define ``follow_dependencies`` debianize will only create packages for
 things that match any of the regex patterns in that option. If omit
 ``follow_dependencies``, it will build debian packages for anything defined as
-a dependency with ``install_requires``.
+a dependency with ``install_requires``. You can not use spaces in any of the
+patterns!
+
+The above defined ``follow_dependencies`` will be matched like this::
+
+    $NAME =~ someobscurepackage|morestuff|ivegotnodebianpackageyet
+
+So it will simply put a ``|`` symbol in between the patterns.
 
