@@ -29,6 +29,7 @@ setup(name='pm.recipe.debianize',
         'distribute',
         'Jinja2',
         'zc.buildout',
+        'pip>=1.1',
         # -*- Extra requirements: -*-
       ],
       entry_points={'zc.buildout': [

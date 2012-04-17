@@ -1,6 +1,6 @@
 #! /bin/bash
 
-MAINTAINER='Lars van de Kerkhof <lars@permanentmarkers.nl>'
+MAINTAINER="{{ maintainer or 'Lars van de Kerkhof <lars@permanentmarkers.nl>' }}"
 
 if [[ $EUID -ne 0 ]]; then
    echo "You must be root to build a debian package." 1>&2
@@ -22,13 +22,13 @@ echo "Downloading dependencies."
 HASH=`openssl dgst -sha1 setup.py | cut -c 17-`
 PACKAGE_VAULT=/tmp/.$HASH
 mkdir -p $PACKAGE_VAULT
-pip -q install --upgrade --no-install --build=$PACKAGE_VAULT -E .
+pip -q install --upgrade --no-install --build=$PACKAGE_VAULT -e .
 
 echo "processing dependencies."
 for NAME in `ls $PACKAGE_VAULT`
 do
     echo -n "package $NAME found in dependency chain, "
-    if [[ $NAME =~ tornado|tornadio2|stormed-amqp|straight.plugin ]]; then
+    if [[ $NAME =~ {{ follow_dependencies|join('|') }} ]]; then
         echo "BUILDING ...."
         fpm --maintainer="$MAINTAINER" --exclude=*.pyc,,*.pyo --depends=python --category=python -s python -t deb $PACKAGE_VAULT/$NAME/setup.py > /dev/null
     else
