@@ -5,16 +5,17 @@ Debianize, a buildout recipe to create debian packages
 Debianize uses fpm (https://github.com/jordansissel/fpm) to create debian
 packages from python source directories. The only thing it really adds, is
 that debianize will also create packages for all depencencies that your
-source package has (``install_requires``). Debianize will only create a debian package from a python
+source package has (``install_requires``). Debianize will only create a debian
+package from a python
 **package**. So you *need* a setup.py.
 
 
 Usage::
-    
+
     [buildout]
     parts =
         debianize
-    
+
     [debianize]
     maintainer = Somebody <somebody@example.com>
     follow_dependencies =
