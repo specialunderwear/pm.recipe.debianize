@@ -1,1 +1,1 @@
-from avira.recipe.debianize import Debianize
+from pm.recipe.debianize.core import Debianize

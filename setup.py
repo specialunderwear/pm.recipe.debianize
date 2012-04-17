@@ -21,12 +21,14 @@ setup(name='pm.recipe.debianize',
       url='https://github.com/specialunderwear/pm.recipe.debianize',
       license='CopyRight PermanentMarkers 2012',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
-      namespace_packages=['pm', 'recipe'],
+      namespace_packages=['pm', 'pm.recipe'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+        'setuptools',
         'distribute',
         'Jinja2',
+        'zc.buildout',
         # -*- Extra requirements: -*-
       ],
       entry_points={'zc.buildout': [
