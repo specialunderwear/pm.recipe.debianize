@@ -49,12 +49,12 @@ version = '0.1'
 
 setup(name='pm.recipe.debianize',
       version=version,
-      description="debianize",
+      description="Debianize, a buildout recipe to create debian packages",
       long_description=__doc__,
       classifiers=[],
       # Get strings from
       #http://pypi.python.org/pypi?%3Aaction=list_classifiers
-      keywords='',
+      keywords='debian buildout',
       author='Lars van de Kerkhof',
       author_email='lars@permanentmarkers.nl',
       url='https://github.com/specialunderwear/pm.recipe.debianize',

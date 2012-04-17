@@ -18,7 +18,7 @@ class Debianize:
         template = env.get_template('debianize.sh')
         output = template.render(
             follow_dependencies=self.options.get(
-                'follow_dependencies', ['*']).split(),
+                'follow_dependencies', '.*').split(),
             maintainer=self.options.get('maintainer', None)
         )
         executable = join(self.bin, 'debianize')
