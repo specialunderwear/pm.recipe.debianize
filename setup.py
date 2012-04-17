@@ -54,7 +54,7 @@ version = '0.1'
 
 setup(name='pm.recipe.debianize',
       version=version,
-      description="Debianize, a buildout recipe to create debian packages",
+      description="A buildout recipe to create debian packages",
       long_description=__doc__,
       classifiers=[],
       # Get strings from
