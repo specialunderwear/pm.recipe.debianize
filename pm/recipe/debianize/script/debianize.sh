@@ -13,7 +13,7 @@ rm -f *.deb
 
 # build package
 echo "building package."
-{{ bin }}/fpm --maintainer="$MAINTAINER" --exclude=*.pyc --exclude=*.pyo --depends=python --category=python -s python -t deb setup.py > /dev/null
+{{ fpm_path }}fpm --maintainer="$MAINTAINER" --exclude=*.pyc --exclude=*.pyo --depends=python --category=python -s python -t deb setup.py > /dev/null
 
 echo "-----------------------------------------------------------"
 echo "Downloading dependencies."
@@ -22,7 +22,7 @@ echo "Downloading dependencies."
 HASH=`openssl dgst -sha1 setup.py | cut -c 17-`
 PACKAGE_VAULT=/tmp/.$HASH
 mkdir -p $PACKAGE_VAULT
-{{ bin }}/pip -q install --upgrade --no-install --build=$PACKAGE_VAULT -e .
+{{ pip_path }}pip -q install --upgrade --no-install --build=$PACKAGE_VAULT -e .
 
 echo "processing dependencies."
 for NAME in `ls $PACKAGE_VAULT`
@@ -30,7 +30,7 @@ do
     echo -n "package $NAME found in dependency chain, "
     if [[ $NAME =~ {{ follow_dependencies|join('|') }} ]]; then
         echo "BUILDING ...."
-        {{ bin }}/fpm --maintainer="$MAINTAINER" --exclude=*.pyc --exclude=*.pyo --depends=python --category=python -s python -t deb $PACKAGE_VAULT/$NAME/setup.py > /dev/null
+        {{ fpm_path }}fpm --maintainer="$MAINTAINER" --exclude=*.pyc --exclude=*.pyo --depends=python --category=python -s python -t deb $PACKAGE_VAULT/$NAME/setup.py > /dev/null
     else
         echo "skipping ...."
     fi
