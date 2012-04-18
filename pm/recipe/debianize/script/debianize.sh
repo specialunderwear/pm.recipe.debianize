@@ -13,7 +13,7 @@ rm -f *.deb
 
 # build package
 echo "building package."
-fpm --maintainer="$MAINTAINER" --exclude=*.pyc,*.pyo --depends=python --category=python -s python -t deb setup.py > /dev/null
+fpm --maintainer="$MAINTAINER" --exclude=*.pyc --exclude=*.pyo --depends=python --category=python -s python -t deb setup.py > /dev/null
 
 echo "-----------------------------------------------------------"
 echo "Downloading dependencies."
@@ -30,7 +30,7 @@ do
     echo -n "package $NAME found in dependency chain, "
     if [[ $NAME =~ {{ follow_dependencies|join('|') }} ]]; then
         echo "BUILDING ...."
-        fpm --maintainer="$MAINTAINER" --exclude=*.pyc,,*.pyo --depends=python --category=python -s python -t deb $PACKAGE_VAULT/$NAME/setup.py > /dev/null
+        fpm --maintainer="$MAINTAINER" --exclude=*.pyc --exclude=*.pyo --depends=python --category=python -s python -t deb $PACKAGE_VAULT/$NAME/setup.py > /dev/null
     else
         echo "skipping ...."
     fi
