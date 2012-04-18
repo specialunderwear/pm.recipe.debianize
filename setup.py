@@ -17,7 +17,7 @@ Usage::
         debianize
 
     [debianize]
-    maintainer = Somebody <somebody@example.com>
+    maintainer = somebody@example.com
     follow_dependencies =
         someobscurepackage
         morestuff
@@ -45,6 +45,9 @@ instead use http://pypi.python.org/pypi/rubygemsrecipe/0.1.5::
     [rubygems]
     recipe = rubygemsrecipe
     gems = fpm
+
+Don't use spaces in the ``maintainer`` if you are using this recipe because it
+passes arguments with $* which causes errors.
 """
 
 from setuptools import setup
