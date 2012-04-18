@@ -16,10 +16,6 @@ class Debianize:
         self.fpm_path = (self.bin + sep) if isfile(join(self.bin, 'fpm')) else ""
         self.pip_path = (self.bin + sep) if isfile(join(self.bin, 'pip')) else ""
 
-        print "----------------------------------------------------------------"
-        print self.pip_path
-        print "----------------------------------------------------------------"
-
     def install(self):
         template = env.get_template('debianize.sh')
         output = template.render(
