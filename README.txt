@@ -43,4 +43,5 @@ instead use http://pypi.python.org/pypi/rubygemsrecipe/0.1.5::
 
     [rubygems]
     recipe = rubygemsrecipe
-    gems = fpm
+    gems =
+        fpm
