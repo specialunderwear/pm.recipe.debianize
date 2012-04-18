@@ -19,7 +19,8 @@ class Debianize:
         output = template.render(
             follow_dependencies=self.options.get(
                 'follow_dependencies', '.*').split(),
-            maintainer=self.options.get('maintainer', None)
+            maintainer=self.options.get('maintainer', None),
+            bin=self.bin
         )
         executable = join(self.bin, 'debianize')
         with open(executable, 'w') as fh:
