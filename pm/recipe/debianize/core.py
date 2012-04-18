@@ -1,6 +1,6 @@
 import stat
 from os import chmod
-from os.path import join, exists
+from os.path import join, exists, sep
 
 from jinja2 import Environment, PackageLoader
 
@@ -13,8 +13,8 @@ class Debianize:
     def __init__(self, buildout, name, options):
         self.name, self.options = name, options
         self.bin = buildout['buildout']['bin-directory']
-        self.fpm_path = self.bin + "/" if exists(join(self.bin, 'fpm')) else ""
-        self.pip_path = self.bin + "/" if exists(join(self.bin, 'pip')) else ""
+        self.fpm_path = self.bin + sep if exists(join(self.bin, 'fpm')) else ""
+        self.pip_path = self.bin + sep if exists(join(self.bin, 'pip')) else ""
 
     def install(self):
         template = env.get_template('debianize.sh')
