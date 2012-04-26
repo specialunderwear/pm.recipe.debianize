@@ -15,15 +15,18 @@ rm -f *.deb
 echo "building package."
 {{ fpm_path }}fpm --maintainer="$MAINTAINER" --exclude=*.pyc --exclude=*.pyo --depends=python --category=python -s python -t deb setup.py
 
-PACKAGE_VERSION=`dpkg-deb --info python-*.deb | grep Version | cut -c 11-`
-PACKAGE_NAME=`dpkg-deb --info python-*.deb | grep Package | cut -c 11-`
+if [ `which dpkg-deb` ]; then
+    # only do this if dpkg-deb is installed.
+    PACKAGE_VERSION=`dpkg-deb --info python-*.deb | grep Version | cut -c 11-`
+    PACKAGE_NAME=`dpkg-deb --info python-*.deb | grep Package | cut -c 11-`
 
-if [ -d upstart ]; then
-echo "building extra package in debian dir"
-cd upstart
-fpm -x "**.svn*" -x "**.svn**" --maintainer="$MAINTAINER" -s dir -t deb -n $PACKAGE_NAME.d -v $PACKAGE_VERSION -d "$PACKAGE_NAME" -a all *
-mv $PACKAGE_NAME* ..
-cd ..
+    if [ -d upstart ]; then
+        echo "building extra package in debian dir"
+        cd upstart
+        fpm -x "**.svn*" -x "**.svn**" --maintainer="$MAINTAINER" -s dir -t deb -n $PACKAGE_NAME.d -v $PACKAGE_VERSION -d "$PACKAGE_NAME" -a all *
+        mv $PACKAGE_NAME* ..
+        cd ..
+    fi
 fi
 
 echo "-----------------------------------------------------------"
