@@ -36,6 +36,13 @@ The above defined ``follow_dependencies`` will be matched like this::
 
 So it will simply put a ``|`` symbol in between the patterns.
 
+Upstart
+-------
+
+If you've got a folder named ``upstart`` next to your setup.py, this folder
+will be packaged as well, with the same version number as your package, but
+adding a ``.d`` postfix to your package name.
+
 Last but not least
 ------------------
 
@@ -53,7 +60,7 @@ passes arguments with $* which causes errors.
 from setuptools import setup
 from setuptools import find_packages
 
-version = '0.2'
+version = '0.3'
 
 setup(name='pm.recipe.debianize',
       version=version,

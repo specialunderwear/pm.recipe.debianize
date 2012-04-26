@@ -1,3 +1,4 @@
+"""
 Debianize, a buildout recipe to create debian packages
 ======================================================
 
@@ -35,6 +36,13 @@ The above defined ``follow_dependencies`` will be matched like this::
 
 So it will simply put a ``|`` symbol in between the patterns.
 
+Upstart
+-------
+
+If you've got a folder named ``upstart`` next to your setup.py, this folder
+will be packaged as well, with the same version number as your package, but
+adding a ``.d`` postfix to your package name.
+
 Last but not least
 ------------------
 
@@ -47,3 +55,4 @@ instead use http://pypi.python.org/pypi/rubygemsrecipe/0.1.5::
 
 Don't use spaces in the ``maintainer`` if you are using this recipe because it
 passes arguments with $* which causes errors.
+"""
