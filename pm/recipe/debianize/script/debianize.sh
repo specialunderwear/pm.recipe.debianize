@@ -21,9 +21,9 @@ if [ `which dpkg-deb` ]; then
     PACKAGE_NAME=`dpkg-deb --info python-*.deb | grep Package | cut -c 11-`
 
     if [ -d upstart ]; then
-        echo "building extra package in debian dir"
+        echo "building extra package in upstart dir"
         cd upstart
-        fpm -x "**.svn*" -x "**.svn**" --maintainer="$MAINTAINER" -s dir -t deb -n $PACKAGE_NAME.d -v $PACKAGE_VERSION -d "$PACKAGE_NAME (= $PACKAGE_VERSION)" -a all *
+        fpm -x "**.svn*" -x "**.svn**" --maintainer="$MAINTAINER" -s dir -t deb -n $PACKAGE_NAME.d -v $PACKAGE_VERSION -d "$PACKAGE_NAME (= $PACKAGE_VERSION)" -a all .
         mv $PACKAGE_NAME* ..
         cd ..
     fi
