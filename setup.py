@@ -60,7 +60,7 @@ passes arguments with $* which causes errors.
 from setuptools import setup
 from setuptools import find_packages
 
-version = '0.3'
+version = '0.5'
 
 setup(name='pm.recipe.debianize',
       version=version,
