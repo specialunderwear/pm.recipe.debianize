@@ -1,4 +1,3 @@
-"""
 Debianize, a buildout recipe to create debian packages
 ======================================================
 
@@ -47,7 +46,7 @@ Last but not least
 ------------------
 
 This recipe does not install fpm for you.
-instead use http://pypi.python.org/pypi/rubygemsrecipe/0.1.5::
+instead use http://pypi.python.org/pypi/rubygemsrecipe/0.1.6::
 
     [rubygems]
     recipe = rubygemsrecipe
