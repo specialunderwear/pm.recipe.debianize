@@ -38,4 +38,4 @@ class Debianize:
         return executable
 
     def update(self):
-        pass
+        self.install()
