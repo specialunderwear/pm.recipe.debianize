@@ -24,7 +24,7 @@ if [ `which dpkg-deb` ]; then
         echo "building extra package in upstart dir"
         cd upstart
         CONFIG_FILES=`find etc -type f | grep -v svn | xargs -i% echo "--config-files=/%"`
-        fpm $CONFIG_FILES -x ".svn*" -x "**.svn*" -x "**.svn**" --maintainer="$MAINTAINER" --category=misc -s dir -t deb -n "$PACKAGE_NAME.d" -v "$PACKAGE_VERSION" -d "$PACKAGE_NAME (= $PACKAGE_VERSION)" -a all *
+        {{ fpm_path }}fpm $CONFIG_FILES -x ".svn*" -x "**.svn*" -x "**.svn**" --maintainer="$MAINTAINER" --category=misc -s dir -t deb -n "$PACKAGE_NAME.d" -v "$PACKAGE_VERSION" -d "$PACKAGE_NAME (= $PACKAGE_VERSION)" -a all *
         mv $PACKAGE_NAME* ..
         cd ..
     fi
