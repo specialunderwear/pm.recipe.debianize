@@ -61,7 +61,7 @@ instead use http://pypi.python.org/pypi/rubygemsrecipe/0.1.6::
 from setuptools import setup
 from setuptools import find_packages
 
-version = '0.7'
+version = '0.8'
 
 setup(name='pm.recipe.debianize',
       version=version,
