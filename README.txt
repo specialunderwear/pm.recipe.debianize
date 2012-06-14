@@ -8,6 +8,9 @@ source package has (``install_requires``). Debianize will only create a debian
 package from a python
 **package**. So you *need* a setup.py.
 
+**note!** *If you are not using buildout but still want to use debianize, use
+https://gist.github.com/2929586, which is just a shell script that does
+the same, but is configured with flags*
 
 Usage::
 
